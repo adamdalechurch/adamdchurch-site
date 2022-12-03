@@ -7,17 +7,18 @@ import { ProjectCard } from "./ProjectCard";
 // import projImg5 from "../assets/img/fifth work.jpg";
 // import projImg6 from "../assets/img/12345.jpg";
 // import colorSharp2 from "../assets/img/color-sharp2.png";
+import microbrewhub from "../assets/img/microbrewhub.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
 export const Projects = () => {
 
   const projects = [
-    // {
+    {
       
-    //   description: "Design & Development",
-    //   imgUrl: projImg1,
-    // },
+      description: "Microbrewhub",
+      imgUrl: microbrewhub,
+    },
     // {
     //   description: "Design & Development",
     //   imgUrl: projImg2,
@@ -49,7 +50,6 @@ export const Projects = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
                 <h2>Projects</h2>
-                <p>I show you to all the big and small websites I have done so far</p>
                 <Tab.Container id="projects-tabs" defaultActiveKey="first">
                   <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                     <Nav.Item>
