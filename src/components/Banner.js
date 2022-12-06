@@ -4,6 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import face from '../assets/img/face.png';
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -58,7 +59,7 @@ export const Banner = () => {
                 <span className="tagline">Welcome to my Portfolio</span>
                 <h1>{`Hi! I'm Adam`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "Team Leder" ]'><span className="wrap">{text}</span></span></h1>
                 <p>I make websites, apps, API's, and anything needed to get the job done. I am self-taught, and a quick learner. Please feel free to view the rest of my website, my github page, or send me a message.</p>
-                  <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                  <a href='#connect'>Let’s Connect <ArrowRightCircle size={25} /></a>
               </div>}
             </TrackVisibility>
           </Col>
@@ -66,7 +67,7 @@ export const Banner = () => {
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                  <img src="https://avatars.githubusercontent.com/u/38051837?v=4" alt="Header Img"/>
+                  <img src={face} alt="Header Img"/>
                 </div>}
             </TrackVisibility>
           </Col>
