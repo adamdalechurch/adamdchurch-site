@@ -12,6 +12,17 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(150 - Math.random() * 100);
   const [index, setIndex] = useState(1);
+
+  const [mobile, setMobile] = useState(
+    window.matchMedia("(min-width: 768px)").matches
+  )
+
+  useEffect(() => {
+    window
+    .matchMedia("(max-width: 768px)")
+    .addEventListener('change', e => setMobile( e.matches ));
+  }, []);
+
   const toRotate = [ "Web Developer", "Web Designer", "Team Leader" ];
   const period = 2000;
 
@@ -52,25 +63,59 @@ export const Banner = () => {
     <section className="banner" id="home">
       <Container>
         <Row className="aligh-items-center">
-          <Col xs={12} md={6} xl={7}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <span className="tagline">Welcome to my Portfolio</span>
-                <h1>{`Hi! I'm Adam`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "Team Leder" ]'><span className="wrap">{text}</span></span></h1>
-                <p>I make websites, apps, API's, and anything needed to get the job done. I am self-taught, and a quick learner. Please feel free to view the rest of my website, my github page, or send me a message.</p>
-                  <a href='#connect'>Let’s Connect <ArrowRightCircle size={25} /></a>
-              </div>}
-            </TrackVisibility>
-          </Col>
-          <Col xs={12} md={6} xl={5}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                  <img src={face} alt="Header Img"/>
+        {mobile && 
+          <>
+           <Col xs={12} md={6} xl={7}>
+              <TrackVisibility>
+                {({ isVisible }) =>
+                <div className={isVisible ? "animate__animated animate__fadeIn" : ""} align="center">
+                  <h1>{`Hi! I'm Adam`}</h1>
                 </div>}
-            </TrackVisibility>
-          </Col>
+              </TrackVisibility>
+            </Col>
++           <Col xs={12} md={6} xl={5}>
+              <TrackVisibility>
+                {({ isVisible }) =>
+                  <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                    <img src={face} alt="Header Img"/>
+                  </div>}
+              </TrackVisibility>
+            </Col>
+            <Col xs={12} md={6} xl={7}>
+              <TrackVisibility>
+                {({ isVisible }) =>
+                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                  <p>I make websites, apps, API's, and anything needed to get the job done. I am self-taught, and a quick learner. Please feel free to view the rest of my website, my github page, or send me a message.</p>
+                    <a href='#connect'>Let’s Connect <ArrowRightCircle size={25} /></a>
+                </div>}
+              </TrackVisibility>
+            </Col>
+          </>
+          }
+          
+          {!mobile &&
+          <>
+            <Col xs={12} md={6} xl={7}>
+              <TrackVisibility>
+                {({ isVisible }) =>
+                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                  <h1>{`Hi! I'm Adam`}</h1>
+                  <p>I make websites, apps, API's, and anything needed to get the job done. I am self-taught, and a quick learner. Please feel free to view the rest of my website, my github page, or send me a message.</p>
+                    <a href='#connect'>Let’s Connect <ArrowRightCircle size={25} /></a>
+                </div>}
+              </TrackVisibility>
+            </Col>
+            <Col xs={12} md={6} xl={5}>
+              <TrackVisibility>
+                {({ isVisible }) =>
+                  <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                    <img src={face} alt="Header Img"/>
+                  </div>}
+              </TrackVisibility>
+            </Col>
+          </> 
+          
+          }
         </Row>
       </Container>
     </section>
