@@ -14,7 +14,7 @@ export const Banner = () => {
   const [index, setIndex] = useState(1);
 
   const [mobile, setMobile] = useState(
-    window.matchMedia("(min-width: 768px)").matches
+    window.matchMedia("(max-width: 768px)").matches
   )
 
   useEffect(() => {
@@ -73,7 +73,7 @@ export const Banner = () => {
                 </div>}
               </TrackVisibility>
             </Col>
-+           <Col xs={12} md={6} xl={5}>
+           <Col xs={12} md={6} xl={5}>
               <TrackVisibility>
                 {({ isVisible }) =>
                   <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
